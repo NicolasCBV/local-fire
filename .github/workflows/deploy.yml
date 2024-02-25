@@ -32,3 +32,11 @@ jobs:
           push: true
           tags: ${{secrets.DOCKER_IMAGE_TAG}}:${{github.ref_name}}
 
+      - uses: docker/build-push-action@v5
+        name: Build and push latest image
+        id: build-and-push-latest-image
+        with:
+          file: ./dockerfile
+          push: true
+          tags: ${{secrets.DOCKER_IMAGE_TAG}}:latest
+
